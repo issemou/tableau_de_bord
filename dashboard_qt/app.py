@@ -1,4 +1,4 @@
-from PySide2 import QtWidgets, QtCore, QtWebEngineWidgets
+from PySide6 import QtWidgets, QtCore, QtWebEngineWidgets
 
 
 class Window(QtWidgets.QWidget):
@@ -31,10 +31,11 @@ class Window(QtWidgets.QWidget):
 
     def refresh(self):
         days = self.spin.value()
-        self.view.load(QtCore.QUrl(f"http://docstring.pythonanywhere.com/days={days}&currencies=USD,CAD"))
+        # self.view.load(QtCore.QUrl(f"http://docstring.pythonanywhere.com/days={days}&currencies=USD,CAD"))
+        self.view.load(QtCore.QUrl(f"http://localhost:8000/days={days}&currencies=USD,CAD"))
 
 
 app = QtWidgets.QApplication([])
 win = Window()
-win.showFullScreen()
-app.exec_()
+win.show()
+app.exec()
